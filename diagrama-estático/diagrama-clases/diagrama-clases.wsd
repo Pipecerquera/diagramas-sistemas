@@ -1,0 +1,79 @@
+## Código WSD
+
+```js
+@startuml
+
+' Clase base para usuarios
+class Usuario {
+    + id: int
+    + nombre: String
+    + correo: String
+    + registrarse(): void
+    + iniciarSesion(): void
+}
+
+' Subclase para administradores
+class Administrador extends Usuario {
+    + gestionarInventario(): void
+}
+
+' Subclase para compradores
+class Comprador extends Usuario {
+    + agregarProductoCarrito(): void
+    + realizarCompra(): void
+}
+
+' Clase para productos en el inventario
+class Producto {
+    + id: int
+    + nombre: String
+    + descripcion: String
+    + precio: double
+    + stock: int
+    + actualizarStock(cantidad: int): void
+}
+
+' Clase para gestionar el inventario de productos
+class Inventario {
+    + id: int
+    + productos: List<Producto>
+    + verificarStock(productoId: int): boolean
+}
+
+' Clase para el carrito de compras del comprador
+class Carrito {
+    + id: int
+    + productos: List<Producto>
+    + agregarProducto(producto: Producto): void
+    + eliminarProducto(productoId: int): void
+    + calcularTotal(): double
+}
+
+' Clase para generar la factura de una compra
+class Factura {
+    + id: int
+    + fecha: LocalDateTime
+    + total: double
+    + generarFactura(): void
+}
+
+' Clase para detallar cada producto en la factura
+class DetalleFactura {
+    + id: int
+    + producto: Producto
+    + cantidad: int
+    + precioTotal: double
+}
+
+' Relaciones entre clases
+Usuario <|-- Administrador
+Usuario <|-- Comprador
+Comprador --> Carrito
+Carrito --> Producto
+Factura --> Comprador
+Factura --> DetalleFactura
+DetalleFactura --> Producto
+Producto o-- Inventario
+
+@enduml
+```

@@ -1,0 +1,31 @@
+@startuml
+actor Comprador
+participant "Interfaz Web" as UI
+participant "Controlador Carrito" as Controller
+participant "Carrito" as Cart
+participant "Producto" as Product
+participant "Inventario" as Inventory
+participant "Factura" as Invoice
+participant "DetalleFactura" as InvoiceDetail
+
+Comprador -> UI: agregarProductoCarrito(productoID)
+UI -> Controller: solicitar agregar producto al carrito
+Controller -> Inventory: verificarStock(productoID)
+Inventory --> Controller: stock disponible
+Controller -> Cart: agregarProducto(productoID)
+Cart -> Product: obtenerDetalles(productoID)
+Product --> Cart: detalles del producto
+Cart --> Controller: producto agregado
+Controller --> UI: confirmación de producto agregado
+Comprador -> UI: realizarCompra()
+UI -> Controller: iniciar proceso de compra
+Controller -> Cart: calcularTotal()
+Cart --> Controller: total calculado
+Controller -> Invoice: generarFactura()
+Invoice -> InvoiceDetail: crear detalles de factura
+InvoiceDetail --> Invoice: detalles creados
+Invoice --> Controller: factura generada
+Controller --> UI: mostrar factura
+UI --> Comprador: confirmación de compra y detalles de factura
+@enduml
+
