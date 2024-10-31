@@ -1,0 +1,13 @@
+@startuml
+actor Usuario as usuario
+participant "Carrito" as carrito
+participant "Producto" as producto
+participant "Factura" as factura
+participant "DetalleFactura" as detalleFactura
+
+usuario -> carrito : "Agregar producto"
+carrito -> producto : "Verificar disponibilidad"
+carrito -> detalleFactura : "Generar detalle"
+carrito -> factura : "Crear factura"
+factura -> detalleFactura : "Añadir detalles de compra"
+@enduml

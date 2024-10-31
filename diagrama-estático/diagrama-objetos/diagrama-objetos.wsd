@@ -1,0 +1,28 @@
+@startuml
+object usuario1 {
+    nombre: "Daniel"
+    rol: "Comprador"
+}
+
+object producto1 {
+    nombre: "Laptop"
+    precio: "1200.00"
+    stock: 5
+}
+
+object factura1 {
+    id: "F001"
+    fecha: "2024-10-30"
+    total: "1200.00"
+}
+
+object detalleFactura1 {
+    cantidad: 1
+    subtotal: "1200.00"
+}
+
+usuario1 --> detalleFactura1 : "Realiza compra"
+detalleFactura1 --> producto1 : "Referencia al producto"
+detalleFactura1 --> factura1 : "Pertenece a factura"
+@enduml
+
