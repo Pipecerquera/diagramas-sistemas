@@ -1,0 +1,8 @@
+@startuml
+[*] --> Vacío
+Vacío --> ConProductos : Agregar producto
+ConProductos --> Vacío : Eliminar producto
+ConProductos --> PagoEnProceso : Proceder al pago
+PagoEnProceso --> CompraRealizada : Pago completado
+CompraRealizada --> [*]
+@enduml

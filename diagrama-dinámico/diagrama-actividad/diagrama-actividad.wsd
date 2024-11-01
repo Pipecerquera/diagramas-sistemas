@@ -1,0 +1,10 @@
+@startuml
+start
+:Seleccionar Producto;
+:Agregar al Carrito;
+if (¿Revisar Carrito?) then (sí)
+  :Mostrar Carrito;
+endif
+:Proceder al Pago;
+stop
+@enduml

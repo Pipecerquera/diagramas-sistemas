@@ -1,0 +1,19 @@
+@startuml
+node "Servidor Web" {
+  [Interfaz de Usuario]
+}
+
+node "Servidor de Aplicación" {
+  [Backend]
+}
+
+node "Servidor de Base de Datos" {
+  [Base de Datos]
+}
+
+cloud "Servicio de Pago" as Payment
+
+[Interfaz de Usuario] --> [Backend]
+[Backend] --> [Base de Datos]
+[Backend] --> Payment
+@enduml

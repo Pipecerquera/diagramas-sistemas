@@ -1,0 +1,10 @@
+@startuml
+component "Interfaz de Usuario" as UI
+component "Backend" as API
+database "Base de Datos" as DB
+cloud "Servicio de Pago" as Payment
+
+UI --> API : Realiza peticiones
+API --> DB : Lee y escribe datos
+API --> Payment : Procesa pagos
+@enduml
