@@ -1,0 +1,17 @@
+@startuml
+package "Sistema de Carrito de Compras" {
+    class Usuario <<actor>>
+    class Administrador <<role>>
+    class Comprador <<role>>
+    class Producto <<entity>>
+    class Inventario <<entity>>
+    class Carrito <<entity>>
+    class Factura <<document>>
+    class DetalleFactura <<document>>
+}
+
+Usuario <|-- Administrador
+Usuario <|-- Comprador
+Carrito --> Producto
+Factura --> DetalleFactura
+@enduml

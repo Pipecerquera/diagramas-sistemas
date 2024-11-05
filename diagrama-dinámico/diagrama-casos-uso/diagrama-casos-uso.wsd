@@ -1,0 +1,17 @@
+@startuml
+actor Comprador
+actor Administrador
+
+usecase "Registrar Usuario" as CU1
+usecase "Iniciar Sesión" as CU2
+usecase "Agregar Producto al Carrito" as CU3
+usecase "Verificar Inventario" as CU4
+usecase "Generar Factura" as CU5
+
+Comprador --> CU1
+Comprador --> CU2
+Comprador --> CU3
+Comprador --> CU5
+Administrador --> CU4
+Administrador --> CU5
+@enduml

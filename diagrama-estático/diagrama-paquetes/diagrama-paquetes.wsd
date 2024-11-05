@@ -1,0 +1,25 @@
+@startuml
+package "Usuario" {
+    class Usuario
+    class Administrador
+    class Comprador
+}
+
+package "Producto" {
+    class Producto
+    class Inventario
+}
+
+package "Carrito" {
+    class Carrito
+}
+
+package "Compra" {
+    class Factura
+    class DetalleFactura
+}
+
+Usuario -down-> Carrito
+Carrito -down-> Producto
+Compra --> Carrito
+@enduml

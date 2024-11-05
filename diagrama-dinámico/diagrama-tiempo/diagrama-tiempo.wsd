@@ -1,0 +1,21 @@
+@startuml
+participant "Producto" as P
+participant "Carrito" as C
+participant "Pedido" as O
+
+P -> P : Estado = Disponible
+C -> C : Estado = Vacío
+O -> O : Estado = Sin Pedido
+
+== Tiempo 10 ==
+C -> C : Estado = Producto Añadido
+
+== Tiempo 20 ==
+P -> P : Estado = Reducir Stock
+
+== Tiempo 30 ==
+O -> O : Estado = Pedido Creado
+@enduml
+
+
+
